@@ -43,9 +43,9 @@
 }
 
 .navbar-logo {
-  max-width: 40%;
-  margin-right: 20px;
-  object-fit: cover;
+  font-weight: bold;
+  font-size: 1.6vw;
+  color: rgb(118, 81, 220);
 }
 
 .navbar-right {
