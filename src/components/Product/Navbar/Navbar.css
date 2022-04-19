@@ -43,8 +43,7 @@
 }
 
 .navbar-logo {
-  height: auto;
-  width: 40%;
+  max-width: 40%;
   margin-right: 20px;
   object-fit: cover;
 }

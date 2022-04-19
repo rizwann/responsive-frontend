@@ -1,8 +1,8 @@
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Badge } from "@mui/material";
 
 import "./Navbar.css";
-import { Badge } from "@mui/material";
 
 const Navbar = () => {
   return (
