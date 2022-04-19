@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Welcome.css";
 
 const Welcome = () => {
@@ -15,7 +16,9 @@ const Welcome = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Pellentesque euismod, urna eu tincidunt consectetur,
           </p>
-          <button className="welcome-button">Shop Now</button>
+          <Link to="/productList" className="welcome-button">
+            Shop Now
+          </Link>
         </div>
       </div>
     </div>

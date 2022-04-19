@@ -3,6 +3,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Badge } from "@mui/material";
 
 import "./Navbar.css";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -17,11 +18,9 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-center">
-          <img
-            src="https://images.prismic.io/puc-com/959a4f356c316f73a03ab2311f7a7f30a801caf5_peek-cloppenburg-companies-2018-fashiondigital.jpg?auto=compress,format"
-            alt="logo"
-            className="navbar-logo"
-          />
+          <NavLink to="/" className="navbar-logo">
+            Fashion Digital
+          </NavLink>
         </div>
 
         <div className="navbar-right">
