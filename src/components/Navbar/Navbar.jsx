@@ -8,7 +8,9 @@ const Navbar = () => {
     <div className="navbar-container">
       <header>
         <div>
-          <NavLink to="/">Fashion Digital - Frontend Task</NavLink>
+          <NavLink to="/">
+            <img src="logo.svg" alt="" width="50" className="nav-logo" />
+          </NavLink>
         </div>
         <div>
           <div className="cartIcon">

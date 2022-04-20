@@ -1,23 +1,25 @@
-import { useEffect, useState } from "react";
-
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import Filter from "../../components/Filter/Filter";
 import Product from "../../components/Product/Product";
-import fetchProduct from "../../utils/fetchProduct";
+import { getProductsAsync } from "../../redux/actions/productActions";
+
 import "./ProductList.css";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchProduct();
-      setProducts(data);
-      localStorage.setItem("products", JSON.stringify(data));
-    };
-    fetchData();
-  }, []);
+    dispatch(getProductsAsync());
+  }, [dispatch]);
+  const products = useSelector(
+    (state) => state.productReducer.filteredProducts
+  );
 
   return (
     <div>
+      <Filter />
       <ul className="products">
         {products.map((product) => {
           return <Product key={product.id} product={product} />;

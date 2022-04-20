@@ -1,52 +1,35 @@
-import { GlassMagnifier } from "react-image-magnifiers";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { useParams } from "react-router-dom";
 import "./SingleProduct.css";
 
 const SingleProduct = () => {
   const { id } = useParams();
-  const products = JSON.parse(localStorage.getItem("products"));
+  const products = useSelector(
+    (state) => state.productReducer.filteredProducts
+  );
+
   const product = products.find((product) => product.id === id);
   return (
     <div className="single-product">
-      <Carousel
-        className="single-product-left"
-        swipeable={true}
-        showThumbs={true}
-        dynamicHeight={true}
-        showIndicators={true}
-      >
-        {/* <GlassMagnifier
-          imageSrc={product.images[0]}
-          largeImageSrc={product.images[0]}
-          magnifierSize="50%"
-          magnifierBorderSize="1"
-          magnifierBorderStyle="solid"
-          magnifierPosition="right"
-          imageWidth="400"
-          imageHeight="400"
-          square={true}
-        />
-        <GlassMagnifier
-          imageSrc={product.images[1]}
-          largeImageSrc={product.images[1]}
-          magnifierSize="50%"
-          magnifierBorderSize="1"
-          magnifierBorderStyle="solid"
-          magnifierPosition="right"
-          imageWidth="400"
-          imageHeight="400"
-          square={true}
-        /> */}
-        <div>
-          <img src={product.images[0]} alt={product.brand} />
-        </div>
-        <div>
-          <img src={product.images[1]} alt={product.brand} />
-        </div>
-      </Carousel>
+      <div className="single-product-left">
+        <Carousel
+          swipeable={true}
+          showThumbs={true}
+          dynamicHeight={true}
+          showIndicators={true}
+          width="60%"
+          height="70%"
+        >
+          <div className="carousel-item">
+            <img src={product.images[0]} alt={product.brand} />
+          </div>
+          <div className="carousel-item">
+            <img src={product.images[1]} alt={product.brand} />
+          </div>
+        </Carousel>
+      </div>
 
       <div className="single-product-right">
         <h1>{product.brand}</h1>
@@ -76,8 +59,8 @@ const SingleProduct = () => {
             </div>
           </div>
         </div>
-        <div className="product-buttons single ">
-          <button className="add-to-fav">Add to Cart</button>
+        <div className="product-buttons single">
+          <button className="add-to-fav add">Add to Cart</button>
           <a
             href={product.url}
             target="_blank"

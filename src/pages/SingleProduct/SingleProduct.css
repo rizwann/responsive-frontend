@@ -1,4 +1,6 @@
 .single-product {
+  height: 100%;
+  width: 100%;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -7,6 +9,10 @@
 
 .single-product-left {
   flex: 2;
+}
+.single-product-carousel {
+  height: 10px;
+  width: 10px;
 }
 .single-product-right {
   flex: 3;
@@ -63,4 +69,11 @@
 .product-color {
   display: flex;
   align-items: center;
+}
+.single {
+  margin-top: 20px;
+  justify-content: start;
+}
+.add {
+  margin-right: 10px;
 }
