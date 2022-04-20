@@ -1,11 +1,16 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../redux/actions/productActions";
 
 import "./Product.css";
 
 const Product = ({ product }) => {
   const { id, brand, description, priceO, priceR, images, url, sizes } =
     product;
-
+  const dispatch = useDispatch();
+  function handleAddToCart(product) {
+    dispatch(addToCart(product));
+  }
   return (
     <li className="product">
       <div className="product-container">
@@ -57,12 +62,13 @@ const Product = ({ product }) => {
           </div>
         </div>
         <div className="product-buttons ">
-          <button className="add-to-fav">Add to Fav</button>
+          <button className="add-to-fav">Add to Cart</button>
           <a
             href={url}
             target="_blank"
             className="product-buy-button-link"
             rel="noreferrer"
+            onClick={() => handleAddToCart(product)}
           >
             <button className="product-buy-button">Buy Now</button>
           </a>
