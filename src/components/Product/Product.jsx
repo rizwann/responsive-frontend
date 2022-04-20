@@ -9,18 +9,38 @@ const Product = ({ product }) => {
   return (
     <li className="product">
       <div className="product-container">
-        <div className="product-image-container">
-          <img src={images[0]} alt={brand} className="product-image" />
-        </div>
+        <Link to={`/products/${id}`} className="product-image-container">
+          <img
+            src={images[0]}
+            alt={brand}
+            className="product-image"
+            onMouseOver={(e) =>
+              setTimeout(() => (e.target.src = images[1]), 500)
+            }
+            onMouseOut={(e) =>
+              setTimeout(() => (e.target.src = images[0]), 500)
+            }
+          />
+        </Link>
         <div className="product-info-container">
           <div className="product-info-title">
-            <p className="product-brand">{brand}</p>
+            <Link to={`/products/${id}`} className="product-brand">
+              {brand}
+            </Link>
             <p className="product-description">{description}</p>
           </div>
           <div className="price-size-container">
             <div className="product-price">
-              <span className="product-price-original">{priceO} </span>
-              <span className="product-price-reduced">{priceR}</span>
+              {product.priceR ? (
+                <>
+                  <span className="product-price-original">
+                    €{product.priceO}{" "}
+                  </span>
+                  <span className="product-price-reduced">€{priceR}</span>
+                </>
+              ) : (
+                <span className="product-price-reduced">€{priceO} </span>
+              )}
             </div>
             <div className="product-size-container">
               <span>Size: </span>
@@ -36,11 +56,16 @@ const Product = ({ product }) => {
             </div>
           </div>
         </div>
-        <div className="product-buttons">
+        <div className="product-buttons ">
           <button className="add-to-fav">Add to Fav</button>
-          <Link to={`/productList/${id}`} className="product-buy-button-link">
+          <a
+            href={url}
+            target="_blank"
+            className="product-buy-button-link"
+            rel="noreferrer"
+          >
             <button className="product-buy-button">Buy Now</button>
-          </Link>
+          </a>
         </div>
       </div>
     </li>

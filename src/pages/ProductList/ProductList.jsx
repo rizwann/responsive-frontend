@@ -5,13 +5,13 @@ import fetchProduct from "../../utils/fetchProduct";
 import "./ProductList.css";
 
 const ProductList = () => {
-  const url = "fid-recruiting/fid-task-4-ffront-products.json";
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchProduct(url);
+      const data = await fetchProduct();
       setProducts(data);
+      localStorage.setItem("products", JSON.stringify(data));
     };
     fetchData();
   }, []);
