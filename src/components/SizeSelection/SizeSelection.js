@@ -2,6 +2,8 @@ import Select, { components } from "react-select";
 
 import { AiFillCaretDown } from "react-icons/ai";
 import "./Size.css";
+import { useDispatch } from "react-redux";
+import { filterSize } from "../../redux/actions/productActions";
 
 const DropdownIndicator = (props) => {
   return (
@@ -33,6 +35,7 @@ const customStyles = {
     return { ...provided, opacity, transition };
   },
 };
+
 const SizeSelection = () => {
   const options = [
     { value: "small", label: "S" },
@@ -41,9 +44,9 @@ const SizeSelection = () => {
     { value: "x-large", label: "XL" },
   ];
   const label = "Select Size";
-
+  const dispatch = useDispatch();
   const onChange = (value) => {
-    console.log(value);
+    dispatch(filterSize(value));
   };
 
   return (

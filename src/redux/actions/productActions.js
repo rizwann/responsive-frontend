@@ -1,6 +1,6 @@
 import {
   ADD_TO_CART,
-  FILTER_CATEGORY,
+  FILTER_SIZE,
   GET_PRODUCTS,
   REMOVE_ALL_FROM_CART,
   REMOVE_FROM_CART,
@@ -44,11 +44,11 @@ export function sortProducts(sort) {
   };
 }
 
-export function filterCategory(category) {
+export function filterSize(sizes) {
   return {
-    type: FILTER_CATEGORY,
+    type: FILTER_SIZE,
     payload: {
-      category,
+      sizes,
     },
   };
 }

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  filterCategory,
   searchProducts,
   sortProducts,
 } from "../../redux/actions/productActions";
@@ -22,10 +21,6 @@ const Filter = () => {
 
   const handleSortProducts = (event) => {
     dispatch(sortProducts(event.target.value));
-  };
-
-  const handleFilterCategory = (event) => {
-    dispatch(filterCategory(event.target.value));
   };
 
   const handleSearchProducts = (event) => {

@@ -4,7 +4,7 @@ const initialState = {
   keyword: "",
   filteredProducts: [],
   sort: "",
-  category: "",
+  sizes: [],
 };
 
 export default function productReducer(state = initialState, action) {
@@ -16,7 +16,7 @@ export default function productReducer(state = initialState, action) {
         filteredProducts: action.payload.products,
         keyword: "",
         sort: "",
-        category: "",
+        sizes: [],
       };
 
     case "SEARCH_PRODUCTS":
@@ -32,7 +32,6 @@ export default function productReducer(state = initialState, action) {
         ...state,
         filteredProducts: searchedProducts,
         keyword: action.payload.keyword,
-        category: "all",
       };
 
     case "SORT_PRODUCTS":
@@ -84,6 +83,28 @@ export default function productReducer(state = initialState, action) {
     //       sort: "",
     //     };
     //   }
+
+    case "FILTER_SIZE":
+      const filteredProductsCopy = [...state.filteredProducts];
+      if (action.payload.sizes.length === 0) {
+        console.log(state.filteredProducts);
+        return {
+          ...state,
+          filteredProducts: state.products,
+          sizes: action.payload.sizes,
+        };
+      } else {
+        const filteredProducts = filteredProductsCopy.filter((product) => {
+          return product.sizes.includes("XS");
+        });
+        console.log(state.filteredProducts);
+        return {
+          ...state,
+          filteredProducts: filteredProducts,
+          sizes: action.payload.sizes,
+        };
+      }
+
     default:
       return state;
   }
