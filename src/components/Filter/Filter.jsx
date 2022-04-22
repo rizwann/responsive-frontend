@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -10,13 +9,14 @@ import SizeSelection from "../SizeSelection/SizeSelection";
 import "./Filter.css";
 
 const Filter = () => {
-  const category = useSelector((state) => state.productReducer.category);
   const sort = useSelector((state) => state.productReducer.sort);
   const keyword = useSelector((state) => state.productReducer.keyword);
-  const products = useSelector(
+  const filteredProducts = useSelector(
     (state) => state.productReducer.filteredProducts
   );
-  const count = products.length;
+
+  const count = filteredProducts.length;
+
   const dispatch = useDispatch();
 
   const handleSortProducts = (event) => {
@@ -43,6 +43,7 @@ const Filter = () => {
 
       <span>Size: </span>
       <SizeSelection />
+
       <div className="search">
         <Form className="d-flex nv-search">
           <input

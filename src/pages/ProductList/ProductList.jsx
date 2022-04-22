@@ -13,17 +13,31 @@ const ProductList = () => {
   useEffect(() => {
     dispatch(getProductsAsync());
   }, [dispatch]);
-  const products = useSelector(
+  const filteredProducts = useSelector(
     (state) => state.productReducer.filteredProducts
   );
+  const products = useSelector((state) => state.productReducer.products);
+  // const filteredSizes = useSelector((state) => state.productReducer.sizes);
+  // const keyword = useSelector((state) => state.productReducer.keyword);
 
+  console.log(products);
   return (
     <div>
       <Filter />
       <ul className="products">
-        {products.map((product) => {
-          return <Product key={product.id} product={product} />;
-        })}
+        {
+          /* {filteredSizes.length < 0 && keyword === ""
+          ? products.map((product) => {
+              return <Product key={product.id} product={product} />;
+            })
+          : filteredProducts.map((product) => {
+              return <Product key={product.id} product={product} />;
+            })} */
+
+          filteredProducts.map((product) => {
+            return <Product key={product.id} product={product} />;
+          })
+        }
       </ul>
     </div>
   );

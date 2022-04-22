@@ -7,10 +7,12 @@ import "./Product.css";
 const Product = ({ product }) => {
   const { id, brand, description, priceO, priceR, images, url, sizes } =
     product;
+
   const dispatch = useDispatch();
   function handleAddToCart(product) {
     dispatch(addToCart(product));
   }
+
   return (
     <li className="product">
       <div className="product-container">
@@ -52,9 +54,11 @@ const Product = ({ product }) => {
               <select>
                 {sizes.map((size) => {
                   return (
-                    <option className="product-size" key={size}>
-                      {size}
-                    </option>
+                    size !== "00" && (
+                      <option className="product-size" key={size}>
+                        {size}
+                      </option>
+                    )
                   );
                 })}
               </select>

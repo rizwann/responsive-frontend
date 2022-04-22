@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import ProductList from "./pages/ProductList/ProductList";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
+import Statistics from "./pages/Statistics/Statistics";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/productList" element={<ProductList />} />
         <Route path="/products/:id" element={<SingleProduct />} />
+        <Route path="/statistics" element={<Statistics />} />
       </Routes>
     </Router>
   );
