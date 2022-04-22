@@ -6,6 +6,7 @@ import {
   searchProducts,
   sortProducts,
 } from "../../redux/actions/productActions";
+import SizeSelection from "../SizeSelection/SizeSelection";
 
 import "./Filter.css";
 
@@ -44,16 +45,9 @@ const Filter = () => {
           <option value="highest">Price: High to Low</option>
         </select>
       </div>
-      <div className="filter-size">
-        <span>Size: </span> &nbsp;
-        <select>
-          <option value="all">All</option>
-          <option value="electronics">Electronics</option>
-          <option value="men's clothing">Men's Clothing</option>
-          <option value="women's clothing">Women's Clothing</option>
-          <option value="jewelery">Jewelery</option>
-        </select>
-      </div>
+
+      <span>Size: </span>
+      <SizeSelection />
       <div className="search">
         <Form className="d-flex nv-search">
           <input
