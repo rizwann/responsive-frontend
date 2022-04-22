@@ -32,6 +32,8 @@ export default function productReducer(state = initialState, action) {
         ...state,
         filteredProducts: searchedProducts,
         keyword: action.payload.keyword,
+        sizes: [],
+        sort: "",
       };
 
     case "SORT_PRODUCTS":
@@ -63,45 +65,35 @@ export default function productReducer(state = initialState, action) {
         sort: action.payload.sort,
       };
 
-    // case "FILTER_CATEGORY":
-    //   const filteredProductsCopy = [...state.products];
-    //   if (action.payload.category === "all") {
-    //     return {
-    //       ...state,
-    //       filteredProducts: filteredProductsCopy,
-    //       category: action.payload.category,
-    //       sort: "",
-    //     };
-    //   } else {
-    //     const categorizedProducts = filteredProductsCopy.filter((product) => {
-    //       return product.category === action.payload.category;
-    //     });
-    //     return {
-    //       ...state,
-    //       filteredProducts: categorizedProducts,
-    //       category: action.payload.category,
-    //       sort: "",
-    //     };
-    //   }
-
     case "FILTER_SIZE":
-      const filteredProductsCopy = [...state.filteredProducts];
+      const filteredProductsCopy = [...state.products];
+
       if (action.payload.sizes.length === 0) {
-        console.log(state.filteredProducts);
         return {
           ...state,
-          filteredProducts: state.products,
+          filteredProducts: [...state.products],
           sizes: action.payload.sizes,
+          sort: "",
+          keyword: "",
         };
       } else {
-        const filteredProducts = filteredProductsCopy.filter((product) => {
-          return product.sizes.includes("XS");
+        let sizes = action.payload.sizes.map((size) => {
+          return size.label;
         });
-        console.log(state.filteredProducts);
+
+        const filteredProductsBySize = filteredProductsCopy.filter(
+          (product) => {
+            return sizes.some((size) => {
+              return product.sizes.includes(size);
+            });
+          }
+        );
+
         return {
           ...state,
-          filteredProducts: filteredProducts,
+          filteredProducts: filteredProductsBySize,
           sizes: action.payload.sizes,
+          sort: "",
         };
       }
 

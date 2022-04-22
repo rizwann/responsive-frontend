@@ -2,7 +2,7 @@ import Select, { components } from "react-select";
 
 import { AiFillCaretDown } from "react-icons/ai";
 import "./Size.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { filterSize } from "../../redux/actions/productActions";
 
 const DropdownIndicator = (props) => {
@@ -20,7 +20,6 @@ const customStyles = {
     width: "100%",
   }),
   control: () => ({
-    // none of react-select's styles are passed to <Control />
     width: "200",
     fontSize: "16px",
     padding: "10px",
@@ -37,20 +36,35 @@ const customStyles = {
 };
 
 const SizeSelection = () => {
+  const filteredSizes = useSelector((state) => state.productReducer.sizes);
   const options = [
+    { value: "xx-small", label: "XXS" },
+    { value: "x-small", label: "XS" },
     { value: "small", label: "S" },
     { value: "medium", label: "M" },
     { value: "large", label: "L" },
     { value: "x-large", label: "XL" },
+    { value: "xx-large", label: "XXL" },
+    { value: "34", label: "34" },
+    { value: "36", label: "36" },
+    { value: "50", label: "50" },
   ];
+  // const options2 = [
+  //   { value: "34", label: "34" },
+  //   { value: "36", label: "36" },
+  //   { value: "50", label: "50" },
+  // ];
+
   const label = "Select Size";
   const dispatch = useDispatch();
   const onChange = (value) => {
+    console.log(value);
     dispatch(filterSize(value));
   };
 
   return (
     <Select
+      value={filteredSizes}
       label={label}
       options={options}
       isMulti
