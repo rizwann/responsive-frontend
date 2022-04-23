@@ -97,6 +97,24 @@ export default function productReducer(state = initialState, action) {
         };
       }
 
+    case "ADD_TO_CART":
+      const cartItemsCopy = [...state.cartItems];
+      let alreadyInCart = false;
+      cartItemsCopy.forEach((item) => {
+        if (item.id === action.payload.product.id) {
+          item.inCartQuantity += 1;
+          alreadyInCart = true;
+        }
+      });
+      if (!alreadyInCart) {
+        cartItemsCopy.push({ ...action.payload.product, inCartQuantity: 1 });
+      }
+
+      return {
+        ...state,
+        cartItems: cartItemsCopy,
+      };
+
     default:
       return state;
   }
