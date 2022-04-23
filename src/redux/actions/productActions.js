@@ -2,8 +2,6 @@ import {
   ADD_TO_CART,
   FILTER_SIZE,
   GET_PRODUCTS,
-  REMOVE_ALL_FROM_CART,
-  REMOVE_FROM_CART,
   SEARCH_PRODUCTS,
   SORT_PRODUCTS,
 } from "./actionsTypes";
@@ -59,20 +57,5 @@ export function addToCart(product) {
     payload: {
       product,
     },
-  };
-}
-
-export function removeFromCart(product) {
-  return {
-    type: REMOVE_FROM_CART,
-    payload: {
-      product,
-    },
-  };
-}
-
-export function removeAllFromCart() {
-  return {
-    type: REMOVE_ALL_FROM_CART,
   };
 }

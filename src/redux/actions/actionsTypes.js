@@ -3,5 +3,3 @@ export const SEARCH_PRODUCTS = "SEARCH_PRODUCTS";
 export const SORT_PRODUCTS = "SORT_PRODUCTS";
 export const FILTER_SIZE = "FILTER_SIZE";
 export const ADD_TO_CART = "ADD_TO_CART";
-export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
-export const REMOVE_ALL_FROM_CART = "REMOVE_ALL_FROM_CART";

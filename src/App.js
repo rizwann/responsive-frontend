@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+
 import Home from "./pages/Home/Home";
+import Error from "./pages/NotFound/Error";
 import ProductList from "./pages/ProductList/ProductList";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import Statistics from "./pages/Statistics/Statistics";
@@ -13,7 +15,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/productList" element={<ProductList />} />
         <Route path="/products/:id" element={<SingleProduct />} />
+
         <Route path="/statistics" element={<Statistics />} />
+
+        <Route path="*" element={<Error />} />
       </Routes>
     </Router>
   );

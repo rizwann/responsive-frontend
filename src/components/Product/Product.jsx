@@ -66,13 +66,17 @@ const Product = ({ product }) => {
           </div>
         </div>
         <div className="product-buttons ">
-          <button className="add-to-fav">Add to Cart</button>
+          <button
+            className="add-to-fav"
+            onClick={() => handleAddToCart(product)}
+          >
+            Add to Cart
+          </button>
           <a
             href={url}
             target="_blank"
             className="product-buy-button-link"
             rel="noreferrer"
-            onClick={() => handleAddToCart(product)}
           >
             <button className="product-buy-button">Buy Now</button>
           </a>
