@@ -1,9 +1,10 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { BsCartPlus } from "react-icons/bs";
 
 import "./NavigationBar.css";
 
 const NavigationBar = () => {
+  const cart = useSelector((state) => state.productReducer.cartItems);
   return (
     <div className="container">
       <div className="item">
@@ -12,7 +13,7 @@ const NavigationBar = () => {
         </div>
         <div className="texts">
           <div className="text">Order Now</div>
-          <div className="text"> 017797 38214</div>
+          <div className="text"> 017797 38***</div>
         </div>
 
         <Link to="/" className="mobileLogo">
@@ -45,16 +46,21 @@ const NavigationBar = () => {
           <Link to="/statistics" className="listItem">
             Statistics
           </Link>
-          <Link to="/statistics" className="listItem">
+          <span
+            onClick={() =>
+              window.open("https://www.fashionid.de/", "_blank").focus()
+            }
+            className="listItem"
+          >
             Shop
-          </Link>
+          </span>
         </ul>
       </div>
       <div className="item">
         <div className="cart">
           <img src="cart.png" alt="logo" width="30" height="30" />
 
-          <div className="counter">2</div>
+          <div className="counter">{cart.length}</div>
         </div>
       </div>
     </div>

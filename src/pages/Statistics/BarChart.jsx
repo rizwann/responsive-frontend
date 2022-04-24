@@ -23,6 +23,7 @@ function BarChart({ values, chartLabels, variant }) {
   console.log(chartLabels);
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",

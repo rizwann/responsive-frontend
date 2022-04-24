@@ -7,3 +7,9 @@
   list-style: none;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 660px) {
+  .products {
+    flex-direction: column;
+  }
+}

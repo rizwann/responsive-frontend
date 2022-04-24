@@ -20,7 +20,6 @@ const Statistics = () => {
   }, {});
 
   const label = Object.keys(popularBrand).map((key) => key);
-
   const values = Object.values(popularBrand);
 
   //mean price by brand offering the clothing size 32
@@ -61,8 +60,6 @@ const Statistics = () => {
   );
   const averageLabels = Object.keys(meanPriceByBrand).map((key) => key);
   const averageValues = Object.values(meanPriceByBrand);
-
-  //which brand offers the largest selection of sizes to the customer
 
   return (
     <div className="statistics-container">
