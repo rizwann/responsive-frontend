@@ -1,11 +1,11 @@
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   searchProducts,
   sortProducts,
 } from "../../redux/actions/productActions";
 import SizeSelection from "../SizeSelection/SizeSelection";
-
 import "./Filter.css";
 
 const Filter = () => {

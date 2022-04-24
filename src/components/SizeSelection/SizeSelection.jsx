@@ -2,7 +2,6 @@ import Select, { components } from "react-select";
 import { AiFillCaretDown } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 
-import "./Size.css";
 import { filterSize } from "../../redux/actions/productActions";
 import { groupedOptions } from "./sizes";
 
@@ -23,9 +22,9 @@ const customStyles = {
   }),
   control: () => ({
     width: "200",
-    fontSize: "16px",
     padding: "10px",
     display: "flex",
+    fontSize: "1.5rem",
     justifyContent: "space-between",
     alignItems: "center",
   }),
