@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useParams } from "react-router-dom";
+
 import { addToCart } from "../../redux/actions/productActions";
 import "./SingleProduct.css";
 

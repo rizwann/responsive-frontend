@@ -21,7 +21,7 @@ Built with these following technologies :
 
 # To run this app
 
-## After Cloning/Forking this repo, In the project directory run this commands,
+## After Cloning/Forking this repo, In the project directory run these commands,
 
 ## `npm install`
 

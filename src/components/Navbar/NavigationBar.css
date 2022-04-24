@@ -116,6 +116,8 @@
     flex: 1;
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
   }
   .mobile > .listItem {
     margin: 10px;

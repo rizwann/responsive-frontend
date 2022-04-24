@@ -109,4 +109,8 @@
   .product-price-reduced {
     font-size: 1.5rem;
   }
+  .single {
+    align-items: center;
+    justify-content: center;
+  }
 }

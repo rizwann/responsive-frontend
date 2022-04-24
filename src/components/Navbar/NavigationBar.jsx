@@ -42,7 +42,9 @@ const NavigationBar = () => {
           <Link to="/productList" className="listItem">
             Products
           </Link>
-          <img src="logo.svg" alt="logo" width="160" height="69" />
+          <Link to="/">
+            <img src="logo.svg" alt="logo" width="160" height="69" />
+          </Link>
           <Link to="/statistics" className="listItem">
             Statistics
           </Link>
