@@ -13,7 +13,7 @@ const NavigationBar = () => {
         </div>
         <div className="texts">
           <div className="text">Order Now</div>
-          <div className="text"> 017797 38214</div>
+          <div className="text"> 017797 38***</div>
         </div>
 
         <Link to="/" className="mobileLogo">
@@ -46,9 +46,14 @@ const NavigationBar = () => {
           <Link to="/statistics" className="listItem">
             Statistics
           </Link>
-          <Link to="/statistics" className="listItem">
+          <span
+            onClick={() =>
+              window.open("https://www.fashionid.de/", "_blank").focus()
+            }
+            className="listItem"
+          >
             Shop
-          </Link>
+          </span>
         </ul>
       </div>
       <div className="item">

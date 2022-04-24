@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+
+import { getProductsAsync } from "../../redux/actions/productActions";
 import Filter from "../../components/Filter/Filter";
 import Product from "../../components/Product/Product";
-import { getProductsAsync } from "../../redux/actions/productActions";
-
 import "./ProductList.css";
 
 const ProductList = () => {
