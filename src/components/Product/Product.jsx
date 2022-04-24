@@ -36,7 +36,7 @@ const Product = ({ product }) => {
             </Link>
             <p className="product-description">{description}</p>
           </div>
-          <div className="price-size-container">
+          <div className="product-price-size-container">
             <div className="product-price">
               {product.priceR ? (
                 <>
@@ -65,22 +65,18 @@ const Product = ({ product }) => {
             </div>
           </div>
         </div>
-        <div className="product-buttons ">
-          <button
-            className="add-to-fav"
-            onClick={() => handleAddToCart(product)}
-          >
-            Add to Cart
-          </button>
-          <a
-            href={url}
-            target="_blank"
-            className="product-buy-button-link"
-            rel="noreferrer"
-          >
-            <button className="product-buy-button">Buy Now</button>
-          </a>
-        </div>
+      </div>
+      <div className="product-buttons ">
+        <button className="add-to-fav" onClick={() => handleAddToCart(product)}>
+          Add to Cart
+        </button>
+
+        <button
+          className="add-to-fav"
+          onClick={() => window.open(url, "_blank").focus()}
+        >
+          Buy Now
+        </button>
       </div>
     </li>
   );

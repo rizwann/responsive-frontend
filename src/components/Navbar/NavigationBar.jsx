@@ -1,9 +1,10 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { BsCartPlus } from "react-icons/bs";
 
 import "./NavigationBar.css";
 
 const NavigationBar = () => {
+  const cart = useSelector((state) => state.productReducer.cartItems);
   return (
     <div className="container">
       <div className="item">
@@ -54,7 +55,7 @@ const NavigationBar = () => {
         <div className="cart">
           <img src="cart.png" alt="logo" width="30" height="30" />
 
-          <div className="counter">2</div>
+          <div className="counter">{cart.length}</div>
         </div>
       </div>
     </div>
