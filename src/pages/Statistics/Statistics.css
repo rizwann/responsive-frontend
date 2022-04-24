@@ -1,0 +1,17 @@
+.statistics-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.statistics-bar-container {
+  width: 40vw;
+  height: 40vw;
+  margin: 20px;
+}
+.statistics-bar-container span {
+  font-size: 70%;
+  font-weight: 300;
+  color: rgb(35, 30, 41);
+}

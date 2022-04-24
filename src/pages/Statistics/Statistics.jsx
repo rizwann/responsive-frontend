@@ -1,5 +1,6 @@
-import { Bar, Line } from "react-chartjs-2";
 import { useSelector } from "react-redux";
+import BarChart from "./BarChart";
+import "./Statistics.css";
 
 const Statistics = () => {
   const products = useSelector((state) => state.productReducer.products);
@@ -8,8 +9,6 @@ const Statistics = () => {
   const filteredProducts = products.filter(
     (product) => (product.priceR ? product.priceR : product.priceO) < 40
   );
-
-  const count = filteredProducts.length;
 
   const popularBrand = filteredProducts.reduce((acc, product) => {
     if (acc.hasOwnProperty(product.brand)) {
@@ -22,31 +21,7 @@ const Statistics = () => {
 
   const label = Object.keys(popularBrand).map((key) => key);
 
-  console.log(label);
-
   const values = Object.values(popularBrand);
-  console.log(values);
-
-  const chartData = {
-    labels: [...label],
-    datasets: [
-      {
-        label: "Population",
-        data: [...values],
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.6)",
-          "rgba(54, 162, 235, 0.6)",
-          "rgba(255, 206, 86, 0.6)",
-          "rgba(75, 192, 192, 0.6)",
-          "rgba(153, 102, 255, 0.6)",
-          "rgba(255, 159, 64, 0.6)",
-          "rgba(255, 99, 132, 0.6)",
-        ],
-      },
-    ],
-  };
-
-  //console.log(popularBrand);
 
   //mean price by brand offering the clothing size 32
 
@@ -84,12 +59,39 @@ const Statistics = () => {
     },
     {}
   );
-
-  console.log(meanPriceByBrand);
+  const averageLabels = Object.keys(meanPriceByBrand).map((key) => key);
+  const averageValues = Object.values(meanPriceByBrand);
 
   //which brand offers the largest selection of sizes to the customer
 
-  return <div>...</div>;
+  return (
+    <div className="statistics-container">
+      <div className="statistics-bar-container">
+        <BarChart values={values} chartLabels={label} />
+        <center>
+          <span>
+            <b>Figure: </b>
+            Bar Chart representing number of products by brand that cost less
+            than 40 EUR{" "}
+          </span>
+        </center>
+      </div>
+      <div className="statistics-bar-container">
+        <BarChart
+          values={averageValues}
+          chartLabels={averageLabels}
+          variant="average"
+        />
+        <center>
+          <span>
+            <b>Figure: </b>
+            Bar Chart representing the lowest average price for customers
+            wearing size “32” by brand
+          </span>
+        </center>
+      </div>
+    </div>
+  );
 };
 
 export default Statistics;

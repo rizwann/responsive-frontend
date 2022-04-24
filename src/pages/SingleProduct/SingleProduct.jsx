@@ -1,7 +1,8 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { useParams } from "react-router-dom";
+import { addToCart } from "../../redux/actions/productActions";
 import "./SingleProduct.css";
 
 const SingleProduct = () => {
@@ -9,7 +10,10 @@ const SingleProduct = () => {
   const products = useSelector(
     (state) => state.productReducer.filteredProducts
   );
-
+  const dispatch = useDispatch();
+  function handleAddToCart(product) {
+    dispatch(addToCart(product));
+  }
   const product = products.find((product) => product.id === id);
   return (
     <div className="single-product">
@@ -60,7 +64,12 @@ const SingleProduct = () => {
           </div>
         </div>
         <div className="product-buttons single">
-          <button className="add-to-fav add">Add to Cart</button>
+          <button
+            className="add-to-fav add"
+            onClick={() => handleAddToCart(product)}
+          >
+            Add to Cart
+          </button>
           <a
             href={product.url}
             target="_blank"

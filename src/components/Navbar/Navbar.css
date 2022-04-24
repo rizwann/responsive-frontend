@@ -11,6 +11,11 @@
   float: left;
   width: 50%;
 }
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 header {
   display: flex;
   align-items: center;
