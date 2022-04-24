@@ -6,7 +6,7 @@ import {
   SORT_PRODUCTS,
 } from "./actionsTypes";
 
-const url = "fid-recruiting/fid-task-4-ffront-products.json";
+const url = "/api/fid-task-4-ffront-products.json";
 export function getProducts(products) {
   return {
     type: GET_PRODUCTS,
