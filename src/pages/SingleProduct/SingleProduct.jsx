@@ -25,6 +25,7 @@ const SingleProduct = () => {
           showIndicators={true}
           width="60%"
           height="70%"
+          className="carousel"
         >
           <div className="carousel-item">
             <img src={product.images[0]} alt={product.brand} />
@@ -52,12 +53,14 @@ const SingleProduct = () => {
             )}
           </div>
           <div className="product-size-container">
-            <div className="product-color">
+            <div className="product-sizes">
               {product.sizes.map((size) => {
                 return (
-                  <div className="product-size" key={size}>
-                    {size}
-                  </div>
+                  size !== "00" && (
+                    <div className="product-size" key={size}>
+                      {size}
+                    </div>
+                  )
                 );
               })}
             </div>
@@ -65,19 +68,18 @@ const SingleProduct = () => {
         </div>
         <div className="product-buttons single">
           <button
-            className="add-to-fav add"
+            className="add-to-fav"
             onClick={() => handleAddToCart(product)}
           >
             Add to Cart
           </button>
-          <a
-            href={product.url}
-            target="_blank"
-            className="product-buy-button-link"
-            rel="noreferrer"
+
+          <button
+            className="add-to-fav"
+            onClick={() => window.open(product.url, "_blank").focus()}
           >
-            <button className="product-buy-button">Buy Now</button>
-          </a>
+            Buy Now
+          </button>
         </div>
       </div>
     </div>
