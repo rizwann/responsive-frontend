@@ -1,2 +1,3 @@
-/api/_ https://s3-eu-west-1.amazonaws.com/:splat 200
-/_ /index.html 200
+/api/*    https://s3-eu-west-1.amazonaws.com/fid-recruiting/:splat   200
+/*    /index.html   200
+
