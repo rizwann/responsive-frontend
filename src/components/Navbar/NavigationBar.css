@@ -1,0 +1,166 @@
+.container {
+  height: 60px;
+  padding: 0 50px;
+  background-color: #376190;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.item:last-child {
+  justify-content: flex-end;
+}
+
+.cart {
+  position: relative;
+}
+
+.counter {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #0cc294;
+}
+
+.callBtn {
+  background-color: white;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+}
+
+.texts {
+  margin-left: 20px;
+  color: rgb(152, 107, 9);
+}
+
+.text:first-child {
+  font-size: 12px;
+  font-weight: 500;
+}
+.text:last-child {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.list {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.listItem {
+  margin: 20px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 80%;
+}
+.listItem:hover {
+  color: #cfec0e;
+}
+.item:nth-child(2) {
+  display: none;
+}
+.mobileLogo {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .texts {
+    margin-left: 15px;
+    color: white;
+  }
+
+  .text:first-child {
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .text:last-child {
+    display: none;
+  }
+  .callBtn {
+    width: 25px;
+    height: 25px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .item:nth-child(3) {
+    display: none;
+  }
+  .item:nth-child(2) {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  .mobile > .listItem {
+    margin: 10px;
+  }
+
+  .item:nth-child(1) {
+    flex: 1;
+  }
+
+  .texts {
+    margin-left: 10px;
+    color: white;
+  }
+
+  .text:first-child {
+    font-size: 8px;
+    font-weight: 500;
+  }
+
+  .text:last-child {
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+@media screen and (max-width: 576px) {
+  /* .item:nth-child(1) {
+    display: none;
+  } */
+  .callBtn,
+  .texts {
+    display: none;
+  }
+  .mobileLogo {
+    display: flex;
+  }
+  .mobile > .listItem {
+    font-size: 10px;
+  }
+  .cart {
+    margin-top: 10px;
+    margin-left: 5px;
+  }
+  .cart > img {
+    width: 22px;
+    height: 22px;
+  }
+  .counter {
+    width: 10px;
+    height: 10px;
+    font-size: 10px;
+  }
+}
